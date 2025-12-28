@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-jakarta);
+
+  --color-brand-midnight: #0F172A;
+  --color-brand-blue: #3B82F6;
+  --color-brand-blue-dark: #1D4ED8;
+  --color-brand-white: #FFFFFF;
+  --color-brand-slate: #64748B;
+  --color-brand-light-gray: #F1F5F9;
+  --color-brand-border: #E2E8F0;
+  --color-brand-orange: #F97316;
+  --color-brand-green: #10B981;
+  --color-brand-light-blue: #DBEAFE;
+
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .glass-card-dark {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Base styles */
+body {
+  background-color: var(--color-brand-white);
+  color: var(--color-brand-midnight);
+}
