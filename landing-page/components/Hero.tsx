@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Users, Calendar, Hexagon } from 'lucide-react';
+import { ArrowRight, Calendar, Hexagon } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
@@ -11,9 +11,10 @@ export default function Hero() {
     const visualRef = useRef<HTMLDivElement>(null);
     const rotatingTextRef = useRef<HTMLSpanElement>(null);
 
-    const offers = [
-        "3–5 interview-ready candidates",
-        "qualified sales meetings"
+    const headlines = [
+        "guaranteed.",
+        "with a one time fee.",
+        "Pay-for-performance."
     ];
 
     useGSAP(() => {
@@ -36,22 +37,22 @@ export default function Hero() {
                 ease: 'power3.out',
             }, "-=0.8");
 
-        // 2. Text Rotation Animation
+        // 2. Text Rotation Animation for headline endings
         const textTl = gsap.timeline({ repeat: -1 });
 
-        offers.forEach((offer) => {
+        headlines.forEach((headline) => {
             // Fade In & Slide Up
             textTl.to(rotatingTextRef.current, {
                 opacity: 1,
                 y: 0,
-                duration: 0.5,
+                duration: 0.6,
                 ease: "power2.out",
                 onStart: () => {
-                    if (rotatingTextRef.current) rotatingTextRef.current.innerText = offer;
+                    if (rotatingTextRef.current) rotatingTextRef.current.innerText = headline;
                 }
             })
                 // Hold
-                .to({}, { duration: 2 })
+                .to({}, { duration: 2.5 })
                 // Fade Out & Slide Up
                 .to(rotatingTextRef.current, {
                     opacity: 0,
@@ -83,21 +84,19 @@ export default function Hero() {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full flex-grow pb-20">
                 {/* Left Column: Text Content */}
                 <div ref={textRef} className="space-y-8 relative z-10">
-                    <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold font-heading leading-[1.1] text-brand-midnight tracking-tight">
-                        Stop Burning Out Your Team on Manual Sourcing. Start Filling Pipelines in 7 Days.
-                    </h1>
-                    <p className="text-lg sm:text-l md:text-xl text-brand-slate leading-relaxed max-w-lg min-h-[5em] sm:min-h-[4em]">
-                        AutomateSystems builds the infrastructure that delivers{" "}
-                        <span className="inline-block relative">
+                    <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold font-heading leading-[1.1] text-brand-midnight tracking-tight">
+                        Build a system that beats your top performing humans within 90 days,{" "}
+                        <span className="inline-block relative min-w-[200px]">
                             <span
                                 ref={rotatingTextRef}
                                 className="font-bold text-brand-blue inline-block opacity-0 transform translate-y-5"
                             >
-                                {/* Initial text set by JS fallback */}
-                                3–5 interview-ready candidates
+                                guaranteed.
                             </span>
                         </span>
-                        {" "}directly to your calendar. Monthly. <span className='font-semibold text-brand-midnight'>Guaranteed.</span>
+                    </h1>
+                    <p className="text-lg sm:text-xl text-brand-slate leading-relaxed max-w-lg">
+                        We build AI-powered outbound systems that source, engage, and book qualified meetings—so your team can focus on closing.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center pt-2">
@@ -141,7 +140,7 @@ export default function Hero() {
                                 </div>
                                 <span className="font-heading font-bold text-brand-midnight">My Calendar</span>
                             </div>
-                            <div className="text-sm text-brand-slate">October 2025</div>
+                            <div className="text-sm text-brand-slate">January 2025</div>
                         </div>
 
                         {/* Mock Calendar Grid */}
