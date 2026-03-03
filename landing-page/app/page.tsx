@@ -1,29 +1,35 @@
 'use client';
 
-import Background3D from "@/components/Background3D";
-import Hero from "@/components/Hero";
-import Problem from "@/components/Problem";
-import Solution from "@/components/Solution";
-import SocialProof from "@/components/SocialProof";
-import Differentiation from "@/components/Differentiation";
-import FAQ from "@/components/FAQ";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Features from '@/components/Features';
+import Philosophy from '@/components/Philosophy';
+import Protocol from '@/components/Protocol';
+import CTA from '@/components/CTA';
+import Footer from '@/components/Footer';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  useEffect(() => {
+    // Ensure ScrollTrigger refreshes after all content is loaded
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <main className="min-h-screen relative overflow-hidden">
-      <Background3D />
+    <main className="min-h-screen relative overflow-hidden bg-obsidian">
+      <Navbar />
       <Hero />
-      <div className="bg-brand-light-gray/50 relative backdrop-blur-sm z-10">
-        <Problem />
-      </div>
-      <Solution />
-      <div className="bg-white/80 backdrop-blur-md z-10 relative">
-        <SocialProof />
-      </div>
-      <Differentiation />
-      <FAQ />
+      <Features />
+      <Philosophy />
+      <Protocol />
       <CTA />
       <Footer />
     </main>

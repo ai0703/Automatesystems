@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,9 +8,30 @@ const inter = Inter({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+});
+
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "AutomateSystems | Candidate Pipeline Accelerator",
-  description: "AutomateSystems builds the infrastructure that delivers 3–5 interview-ready candidates or qualified sales meetings directly to your calendar.",
+  title: "Automate Systems | AI Automation Infrastructure for Revenue Teams",
+  description:
+    "AI Swarm handles the busywork behind revenue. Automate lead handling, enrichment, routing, CRM hygiene, and signal-based outreach so your team moves faster.",
+  openGraph: {
+    title: "Automate Systems | The Automation Layer Behind Modern Sales + Marketing",
+    description:
+      "We install AI Swarm, the automation infrastructure that eliminates ops busywork behind sales + marketing teams.",
+    type: "website",
+    url: "https://www.getautomatesystems.com",
+  },
   icons: {
     icon: "/favicon.svg",
   },
@@ -30,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jakarta.variable} ${inter.variable} antialiased font-sans`}
+        className={`${inter.variable} ${playfair.variable} ${jetbrains.variable} antialiased font-sans`}
       >
         {children}
       </body>
