@@ -28,7 +28,7 @@ export default function Hero() {
     return (
         <section
             ref={sectionRef}
-            className="relative h-[100dvh] flex items-end overflow-hidden"
+            className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden pt-40 lg:pt-48"
         >
             {/* Background Image — Dark Marble */}
             <div className="absolute inset-0 z-0">
