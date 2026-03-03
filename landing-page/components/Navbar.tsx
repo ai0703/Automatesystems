@@ -30,9 +30,9 @@ export default function Navbar() {
                 : 'bg-transparent px-8 py-4 rounded-[3rem]'
                 }`}
         >
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4 xl:gap-8">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-2.5 group whitespace-nowrap">
+                <a href="#" className="flex items-center gap-2.5 group flex-shrink-0">
                     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 flex-shrink-0">
                         <rect width="40" height="40" rx="12" className={`transition-colors duration-500 ${scrolled ? 'fill-obsidian' : 'fill-ivory/10'}`} />
                         <path d="M10 28L20 12L30 28" className={`transition-colors duration-500 ${scrolled ? 'stroke-champagne' : 'stroke-champagne'}`} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -40,7 +40,7 @@ export default function Navbar() {
                         <circle cx="20" cy="12" r="2" fill="#C9A84C" />
                     </svg>
                     <span
-                        className={`text-lg font-bold tracking-tight transition-colors duration-500 font-[family-name:var(--font-inter)] ${scrolled ? 'text-obsidian' : 'text-ivory'
+                        className={`text-lg font-bold tracking-tight transition-colors duration-500 whitespace-nowrap font-[family-name:var(--font-inter)] ${scrolled ? 'text-obsidian' : 'text-ivory'
                             }`}
                     >
                         Automate Systems
@@ -48,7 +48,7 @@ export default function Navbar() {
                 </a>
 
                 {/* Desktop Links */}
-                <div className="hidden md:flex items-center gap-6">
+                <div className="hidden lg:flex items-center gap-4 lg:gap-6">
                     {links.map((link) => (
                         <a
                             key={link.label}
@@ -66,7 +66,7 @@ export default function Navbar() {
                 {/* CTA */}
                 <a
                     href="#cta"
-                    className={`hidden md:inline-flex items-center gap-2 text-sm font-bold tracking-wide px-5 py-2.5 rounded-[2rem] transition-all duration-500 cursor-pointer ${scrolled
+                    className={`hidden lg:inline-flex items-center gap-2 text-sm font-bold tracking-wide px-5 py-2.5 rounded-[2rem] transition-all duration-500 cursor-pointer whitespace-nowrap flex-shrink-0 ${scrolled
                         ? 'bg-champagne text-obsidian shadow-md shadow-champagne/20 hover:scale-[1.03]'
                         : 'bg-champagne/20 text-champagne border border-champagne/30 hover:bg-champagne/30 hover:scale-[1.03]'
                         }`}
@@ -78,7 +78,7 @@ export default function Navbar() {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setMobileOpen(!mobileOpen)}
-                    className={`md:hidden transition-colors ${scrolled ? 'text-obsidian' : 'text-ivory'
+                    className={`lg:hidden transition-colors ${scrolled ? 'text-obsidian' : 'text-ivory'
                         }`}
                     aria-label="Toggle menu"
                 >
@@ -88,7 +88,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {mobileOpen && (
-                <div className="md:hidden mt-4 pt-4 border-t border-slate/10 flex flex-col gap-3 pb-2">
+                <div className="lg:hidden mt-4 pt-4 border-t border-slate/10 flex flex-col gap-3 pb-2">
                     {links.map((link) => (
                         <a
                             key={link.label}
