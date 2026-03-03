@@ -32,7 +32,7 @@ export default function Navbar() {
         >
             <div className="flex items-center gap-8">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-2.5 group">
+                <a href="#" className="flex items-center gap-2.5 group whitespace-nowrap">
                     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 flex-shrink-0">
                         <rect width="40" height="40" rx="12" className={`transition-colors duration-500 ${scrolled ? 'fill-obsidian' : 'fill-ivory/10'}`} />
                         <path d="M10 28L20 12L30 28" className={`transition-colors duration-500 ${scrolled ? 'stroke-champagne' : 'stroke-champagne'}`} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -53,7 +53,7 @@ export default function Navbar() {
                         <a
                             key={link.label}
                             href={link.href}
-                            className={`text-sm font-medium tracking-wide hover-lift transition-colors duration-500 ${scrolled
+                            className={`text-sm font-medium tracking-wide hover-lift transition-colors duration-500 whitespace-nowrap ${scrolled
                                 ? 'text-slate hover:text-obsidian'
                                 : 'text-ivory/70 hover:text-ivory'
                                 }`}
